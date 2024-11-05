@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-bg: #ffffff; /* Light background */
+    --primary-color: #3b5998; /* Light primary color */
+    --secondary-bg: #f8f9fc; /* Light secondary background */
+    --text-color: #4a4a4a; /* Light text color */
+    --border-color: #eef2f7; /* Light border color */
+    --message-sent-bg: #7289da; /* Light mode sent message background */
+    --message-received-bg: #99aab5; /* Light mode received message background */
+    --input-bg: #f8f9fc; /* Light mode input background */
+    --input-text-color: #4a4a4a; /* Light mode input text color */
+    --dropdown-bg: #ffffff; /* Light mode dropdown background */
+    --dropdown-text-color: #4a4a4a; /* Light mode dropdown text color */
+}
+
+[data-theme="dark"] {
+    --primary-bg: #2c2f33; /* Dark background */
+    --primary-color: #7289da; /* Dark primary color */
+    --secondary-bg: #23272a; /* Dark secondary background */
+    --text-color: #ffffff; /* Light text color for dark mode */
+    --border-color: #99aab5; /* Light border color for dark mode */
+    --message-sent-bg: #7289da; /* Dark mode sent message background */
+    --message-received-bg: #99aab5; /* Dark mode received message background */
+    --input-bg: #2c2f33; /* Dark mode input background */
+    --input-text-color: #ffffff; /* Dark mode input text color */
+    --dropdown-bg: #23272a; /* Dark mode dropdown background */
+    --dropdown-text-color: #ffffff; /* Dark mode dropdown text color */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.app-container {
+    display: flex;
+    width: 90%;
+    height: 90vh;
+    background-color: var(--primary-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+    width: 25%;
+    background-color: var(--secondary-bg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+}
+
+.header {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#theme-toggle {
+    border: none;
+    background: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.stories-top, .contacts, .call-logs {
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+h3 {
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.story, .contact, .call-log {
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-bg);
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.story i {
+    font-size: 1.2em;
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+.chat-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: 20px;
+    background-color: var(--primary-bg);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h2 {
+    font-size: 1.2em;
+    color: var(--primary-color);
+}
+
+.chat-header input {
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--input-bg);
+    color: var(--input-text-color);
+}
+
+.chat-header input::placeholder {
+    color: var(--input-text-color);
+    opacity: 0.7;
+}
+
+.progress-bar {
+    height: 4px;
+    background-color: var(--primary-color);
+    width: 0;
+    transition: width 0.5s ease-in-out;
+}
+
+.messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: var(--secondary-bg);
+}
+
+.message {
+    display: flex;
+    align-items: center;
+    max-width: 70%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    color: var(--text-color);
+    font-size: 0.95em;
+    animation: fadeIn 0.4s;
+}
+
+.message.sent {
+    align-self: flex-end;
+    background-color: var(--message-sent-bg);
+}
+
+.message.received {
+    align-self: flex-start;
+    background-color: var(--message-received-bg);
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.message.sent .profile-pic {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.input-section {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--primary-bg);
+}
+
+.input-section input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin-right: 8px;
+    background-color: var(--input-bg);
+    color: var(--input-text-color);
+}
+
+.input-section input::placeholder {
+    color: var(--input-text-color);
+    opacity: 0.7;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    background-color: var(--dropdown-bg);
+    color: var(--dropdown-text-color);
+    border: 1px solid var(--border-color);
+}
+
+.dropdown-item {
+    background-color: var(--dropdown-bg);
+    color: var(--dropdown-text-color);
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

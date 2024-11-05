@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nebula</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="header">
+        Nebula
+        <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+      </div>
+      
+      <div class="stories-top">
+        <h3>Stories</h3>
+        <div class="story">
+          <img src="pexels-pixabay-53957.jpg" alt="Alex's profile picture" class="profile-pic"> Alex
+        </div>
+        <div class="story">
+          <img src="pexels-pixabay-432786.jpg" alt="Sam's profile picture" class="profile-pic"> Sam
+        </div>
+        <div class="story">
+          <img src="pexels-pixabay-36744.jpg" alt="Jordan's profile picture" class="profile-pic"> Jordan
+        </div>
+      </div>
+      
+      <div class="contacts">
+        <h3>Contacts</h3>
+        <div class="contact" onclick="switchChat('Meduana')">
+          <img src="vijay.jpg" alt="Jane's profile picture" class="profile-pic"> Meduana
+        </div>
+        <div class="contact" onclick="switchChat('Samyuktha')">
+          <img src="new2.jpeg" alt="John's profile picture" class="profile-pic"> Samyuktha
+        </div>
+        <div class="contact" onclick="switchChat('eve')">
+          <img src="pexels-photo-1108099.jpeg" alt="Eve's profile picture" class="profile-pic"> Eve
+        </div>
+      </div>
+      
+      <div class="call-logs">
+        <h3>Call Logs</h3>
+        <div class="call-log">Missed - Alex</div>
+        <div class="call-log">Received - Jordan</div>
+      </div>
+    </aside>
+    
+    <main class="chat-area">
+      <div class="chat-header">
+        <h2 id="chat-title">Chat with Samyuktha</h2>
+        <input type="text" id="search" placeholder="Search messages...">
+      </div>
+      
+      <div id="progress-bar" class="progress-bar"></div>
+      
+      <div id="message-container" class="messages">
+        <!-- Chat messages will appear here -->
+      </div>
+      
+      <div class="input-section">
+        <input type="text" id="messageInput" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
